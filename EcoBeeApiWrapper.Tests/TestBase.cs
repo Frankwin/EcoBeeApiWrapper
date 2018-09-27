@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using EcoBeeApiWrapper.Enums;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -24,7 +23,7 @@ namespace EcoBeeApiWrapper.Tests
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-
+            await EcoBeeApi.RefreshAuthorizationToken();
         }
     }
 }

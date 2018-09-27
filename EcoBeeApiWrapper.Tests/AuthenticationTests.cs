@@ -15,12 +15,15 @@ namespace EcoBeeApiWrapper.Tests
         {
             var result = await EcoBeeApi.GetPinCode(Scope.SmartRead);
 
-            Assert.IsTrue(result.EcoBeePin != null);
-            Assert.IsTrue(result.Code != null);
+            Assert.IsTrue(result.EcoBeePin != "");
+            Assert.IsTrue(result.Code != "");
         }
 
-        public async Task SuccessfulAuthorizationToken()
+        [TestMethod]
+        public void SuccessfulAuthorizationRefresh()
         {
+            Assert.IsTrue(EcoBeeApi.AuthorizationResponse.AccessToken != "");
+            Assert.IsTrue(EcoBeeApi.AuthorizationResponse.RefreshToken != "");
         }
     }
 }
